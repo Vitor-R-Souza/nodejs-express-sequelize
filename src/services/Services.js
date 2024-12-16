@@ -1,23 +1,27 @@
+/*
+services genericos com os comando base do CRUD, para usar herança de classes nos outros serviços
+*/
+
 const dataSource = require('../models');
 
-class Services {
+class Services { // conexão entre os modelos e os controllers
   constructor(nomeDoModel) {
     this.model = nomeDoModel;
   }
 
-  async pegaTodosOsRegistros () {
+  async pegaTodosOsRegistros () { // CRUD (READ)
     return dataSource[this.model].findAll();
   }
 
-  async pegaUmRegistroPorId(id) {
+  async pegaUmRegistroPorId(id) { // CRUD (READ)
     return dataSource[this.model].findByPk(id);
   }
 
-  async criaRegistro(dadosDoRegistro) {
+  async criaRegistro(dadosDoRegistro) { // CRUD (CREATE)
     return dataSource[this.model].create(dadosDoRegistro);
   }
 
-  async atualizaRegistro(dadosAtualizados, id) {
+  async atualizaRegistro(dadosAtualizados, id) { // CRUD (UPDATE)
     const listadeRegistrosAtualizados = dataSource[this.model].update(dadosAtualizados, {
       where: { id: id }
     });
@@ -27,7 +31,7 @@ class Services {
     return true;
   }
 
-  async excluiRegistro(id) {
+  async excluiRegistro(id) { // CRUD (DELETE)
     return dataSource[this.model].destroy({ where: { id: id } });
   }
 }
