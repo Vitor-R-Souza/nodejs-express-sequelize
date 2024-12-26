@@ -62,6 +62,6 @@ Após iniciar o servidor, você pode interagir com a API utilizando ferramentas 
 - `GET /pessoas/:id` - Retorna uma pessoa específica pelo ID.
 - `POST /pessoas` - Cria uma nova pessoa.
 - `PUT /pessoas/:id` - Atualiza uma pessoa existente pelo ID.
-- `DELETE /pessoas/:id` - Exclui uma pessoa pelo ID.
+- `DELETE /pessoas/:id` - Exclui uma pessoa pelo ID. \
 Existe tambem outras rotas que podem ser vistas na pasta `src/routes`.
 
